@@ -22,8 +22,38 @@ nav a {
   font-size: 2rem;
   color: #333;
   cursor: pointer;
+  position: relative;
 }
 
 nav a nav span {
   font-size: 1.5rem;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: -50px;
+  background: #333;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Arrow */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  transform: skew(12px);
+}
+
+nav a:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
